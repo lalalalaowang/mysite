@@ -1,0 +1,19 @@
+{%extends "base.html"%}
+
+{%block title%}我的博客{%endblock%}
+
+{%block body%}
+    <h3>
+        我的博客    
+    </h3>
+    <hr>
+    <div>
+        {%for blog in blogs%}
+            <a href="{{blog.get_absolute_url}}">{{blog.title}}</a>
+            <ul>
+                <li>日期:{{blog.publish}}</li>
+                <li>作者:{{blog.author}}</li>
+            </ul>
+        {%endfor%}
+    </div>
+{%endblock%}

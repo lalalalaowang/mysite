@@ -1,0 +1,19 @@
+{%extends "base.html"%}
+
+{%block title%}我的博客--{{blog.title}}{%endblock%}
+
+{%block body%}
+<h3>
+    <div>
+        <p>{{blog.title}}</p>
+        <a href={%url 'blog:blog_list'%}>所有博客</a>
+    </div>
+</h3>
+
+<ul>
+    <li>作者：{{blog.auth}}</li>
+    <li>标签：{{blog.blog_type}}</li>
+    <li>发布时间:{{blog.create_time}}</li>
+</ul>
+<div>{{blog.content}}</div>
+{%endblock%}
