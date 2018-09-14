@@ -1,13 +1,12 @@
-{%extends "base.html"%}
+{%extends "blog/blog_base.html"%}
+
+{%load static%}
 
 {%block title%}我的博客--{{blog.title}}{%endblock%}
 
-{%block body%}
+{%block content%}
 <h3>
-    <div>
-        <p>{{blog.title}}</p>
-        <a href={%url 'blog:blog_list'%}>所有博客</a>
-    </div>
+    <p>{{blog.title}}</p>
 </h3>
 
 <ul>

@@ -1,19 +1,40 @@
-{%extends "base.html"%}
+{%extends "blog/blog_base.html"%}
 
-{%block title%}我的博客{%endblock%}
-
-{%block body%}
-    <h3>
-        我的博客    
-    </h3>
-    <hr>
-    <div>
-        {%for blog in blogs%}
-            <a href="{{blog.get_absolute_url}}">{{blog.title}}</a>
-            <ul>
-                <li>日期:{{blog.publish}}</li>
-                <li>作者:{{blog.author}}</li>
-            </ul>
-        {%endfor%}
+{%block content%}
+<div class='container-fluid'>
+    <div class='raw'>
+        <div class='col-xs-12 col-sm-11 col-md-10'>
+            <div class="panel panel-default">
+                <div class="panel-heading">我的博客
+                </div>
+                <div class="panel-body">
+                    {%for blog in blogs%}
+                        <a href="{{blog.get_absolute_url}}">{{blog.title}}</a>
+                        <ul>
+                            <li class='blog'>
+                                <span class="glyphicon glyphicon-time" aria-hidden="true"></span>:{{blog.publish}}
+                            </li>
+                            <li class='blog'>
+                                <span class="glyphicon glyphicon-user" aria-hidden="true"></span>:{{blog.author}}
+                            </li>
+                        </ul>
+                    {%endfor%}
+                    {%include "pagination.html" with page=blogs%}
+                </div>
+            </div>
+        </div>
+        <div class='hidden-xs col-sm-1 col-md-2'>
+            <div class="panel panel-default">
+                <div class="panel-heading">分类</div>
+                <div class="panel-body">
+                    <ul>
+                        {%for blog_type in blog_types%}
+                            <li>{{blog_type}}</li>
+                        {%endfor%}
+                    </ul> 
+                </div>
+            </div>  
+        </div>
     </div>
+</div>
 {%endblock%}
