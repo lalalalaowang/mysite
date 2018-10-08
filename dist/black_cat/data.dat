@@ -1,0 +1,6 @@
+{
+    "hover" : ":/pic/kiana-1.png",
+    "move" : ":/pic/kiana-2.png",
+    "normal" : ":/pic/kiana-3.gif",
+    "press" : ":/pic/kiana-4.png"
+}

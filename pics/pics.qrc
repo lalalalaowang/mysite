@@ -1,0 +1,8 @@
+<RCC>
+  <qresource prefix="pic">
+    <file>kiana-1.png</file>
+    <file>kiana-2.png</file>
+    <file>kiana-3.gif</file>
+    <file>kiana-4.png</file>
+  </qresource>
+</RCC>
