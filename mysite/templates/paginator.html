@@ -1,0 +1,27 @@
+<nav aria-label="Page navigation" id="pagintor-father">
+    <ul class="pagination" id="pagintor-child">
+        <li {% if not posts.has_previous %}class="disabled"{% endif %}>
+            <a {% if  posts.has_previous %}
+                href="?page={{ posts.previous_page_number }}"
+            {% else %}
+                href="#"
+            {% endif %} aria-label="Previous">
+                <span aria-hidden="true">&laquo;</span>
+            </a>
+        </li>
+        {% for i in page_nums %}
+            <li{% ifequal i page %} class="active"{% endifequal %}>
+                <a href="?page={{ i }}">{{ i }}</a>
+            </li>
+        {% endfor %}
+        <li {% if not posts.has_next %}class="disabled"{% endif %}>
+            <a {% if posts.has_next %}
+                href="?page={{ posts.next_page_number }}"
+            {% else %}
+                href="#"
+            {% endif %} aria-label="Next">
+                <span aria-hidden="true">&raquo;</span>
+            </a>
+        </li>
+    </ul>
+</nav>

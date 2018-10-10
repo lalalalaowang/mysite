@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+{% block title %}
+    用户退出
+{% endblock %}
+
+{% block body %}
+    <h1>你已经成功退出登录，可以点击<a href="{% url 'account:login' %}">登录</a>，再次登录</h1>
+{% endblock %}

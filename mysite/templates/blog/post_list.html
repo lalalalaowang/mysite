@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}我的博客列表{% endblock %}
+{% block statics %}
+    <link rel="stylesheet" href="{% static 'css/blog/post_list.css' %}">
+{% endblock %}
+{% block body %}
+    <div class="container-fluid">
+        <div class="col-sm-8">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    博客列表
+                </div>
+                <div class="panel-body">
+                    <ul>
+                        {% for post in posts %}
+                            <li>
+                                <h3><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h3>
+                                <p><span class="glyphicon glyphicon-user"
+                                         aria-hidden="true"></span><span>{{ post.author }}</span>
+                                </p>
+                                <p><span class="glyphicon glyphicon-time"
+                                         aria-hidden="true"></span><span>{{ post.created }}</span>
+                                </p>
+                                <hr>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                    {% include 'paginator.html' with posts=posts page=page page_nums=page_nums %}
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">这是留白</div>
+                <div class="panel-body">
+                    <h3>这是留白</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
